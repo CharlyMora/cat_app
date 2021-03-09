@@ -5,6 +5,7 @@
  */
 package com.mycompany.cat_app;
 
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author Andres
  */
 public class Inicio {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         int opcion_menu = -1;
         String[] botones={
         "1. ver gatos",
@@ -31,7 +32,7 @@ public class Inicio {
             
             switch(opcion_menu){
                 case 0:
-                    GatosService.VerGatos();
+                    GatosService.verGatos();
                     break;
                 default:
                     break;
