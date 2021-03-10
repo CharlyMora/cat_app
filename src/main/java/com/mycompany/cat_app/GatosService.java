@@ -6,8 +6,10 @@
 package com.mycompany.cat_app;
 
 import com.google.gson.Gson;
+import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 import java.awt.Image;
 import java.io.IOException;
@@ -79,10 +81,23 @@ public class GatosService {
             }
                     
         } catch (IOException e) {
-            System.out.println("yuca por esto:"+e);
+            System.out.println("yuca por esto alobtener la imagen:"+e);
         }  
     }
     public static void favoritoGato(Gatos gato) {
-        
+        try {
+            OkHttpClient client = new OkHttpClient();
+            MediaType mediaType = MediaType.parse("application/json");
+            RequestBody body = RequestBody.create(mediaType, "{\r\n  \"image_id\": \""+gato.getId()+"\"\r\n}");
+            Request request = new Request.Builder()
+              .url("https://api.thecatapi.com/v1/favourites")
+              .method("POST", body)
+              .addHeader("Content-Type", "application/json")
+              .addHeader("x-api-key", gato.getApikey())
+              .build();
+            Response response = client.newCall(request).execute();
+        } catch (IOException e) {
+            System.out.println("yuca por esto al agregar el favorito:"+e);
+        }
     }
 }
