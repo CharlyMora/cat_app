@@ -166,10 +166,24 @@ public class GatosService {
                 }
 
             } catch (IOException e) {
-                System.out.println("yuca por esto alobtener la imagen:"+e);
+                System.out.println("yuca por esto ver los favoritos:"+e);
             }
         }
     }
     
-    public static void borrarFavorito(GatosFav gatofav){}
+    public static void borrarFavorito(GatosFav gatofav){
+        try {
+            OkHttpClient client = new OkHttpClient();
+            MediaType mediaType = MediaType.parse("text/plain");
+            RequestBody body = RequestBody.create(mediaType, "");
+            Request request = new Request.Builder()
+              .url("https://api.thecatapi.com/v1/favourites/"+ gatofav.getId() +"")
+              .method("DELETE", body)
+              .addHeader("x-api-key", gatofav.getApikey())
+              .build();
+            Response response = client.newCall(request).execute();
+        } catch (IOException e) {
+            System.out.println("yuca por esto al borrar el favorito:"+e);
+        }
+    }
 }

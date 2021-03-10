@@ -12,7 +12,7 @@ package com.mycompany.cat_app;
 public class GatosFav {
      String id;
      String url;
-     String apikey;
+     String apikey="85e261a9-dfda-454e-bf4e-7b2c76444904";
      Imagex image;
 
     public String getId() {
@@ -33,10 +33,6 @@ public class GatosFav {
 
     public String getApikey() {
         return apikey;
-    }
-
-    public void setApikey(String apikey) {
-        this.apikey = apikey;
     }
 
     public Imagex getImage() {
