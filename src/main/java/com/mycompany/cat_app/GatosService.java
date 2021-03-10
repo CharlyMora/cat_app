@@ -120,12 +120,12 @@ public class GatosService {
         if(gatosArray.length > 0){
             int min = 1;
             int max  = gatosArray.length;
-            int aleatorio = (int) (Math.random() * ((max-min)-1)) + min;
+            int aleatorio = (int) (Math.random() * ((max-min)+1)) + min;
             int indice = aleatorio-1;
             
             GatosFav gatofav = gatosArray[indice];
             
-            Image  image=null;
+            Image image=null;
             try {
                 URL url =new URL(gatofav.getImage().getUrl());
                 image = ImageIO.read(url);
