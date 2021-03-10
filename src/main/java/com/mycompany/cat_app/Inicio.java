@@ -17,7 +17,8 @@ public class Inicio {
         int opcion_menu = -1;
         String[] botones={
         "1. ver gatos",
-        "2. salir"
+        "2. ver favoritos",
+        "3. salir"
         };
         
         do{
@@ -34,10 +35,13 @@ public class Inicio {
                 case 0:
                     GatosService.verGatos();
                     break;
+                case 1:
+                    GatosService.verFavoritos();
+                    break;    
                 default:
                     break;
             }
-        }while(opcion_menu != 1);
+        }while(opcion_menu != 2);
         
         
     }
