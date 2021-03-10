@@ -102,17 +102,17 @@ public class GatosService {
     }
     
     public static void verFavoritos() throws IOException{
-        Gatos gato = new Gatos();
-        
+        String apikey = new Gatos().apikey;
+          
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
           .url("https://api.thecatapi.com/v1/favourites")
           .method("GET", null)
-          .addHeader("x-api-key", gato.getApikey())
+          .addHeader("x-api-key", apikey)
           .build();
         Response response = client.newCall(request).execute();    
         
-        String elJson = response.body().string();
+        String elJson = response.body().string();        
         Gson gson = new Gson();
         
         GatosFav[] gatosArray = gson.fromJson(elJson, GatosFav[].class);
@@ -127,7 +127,7 @@ public class GatosService {
             
             Image  image=null;
             try {
-                URL url =new URL(gatofav.getImagex().getUrl());
+                URL url =new URL(gatofav.getImage().getUrl());
                 image = ImageIO.read(url);
                 ImageIcon fondoGato = new ImageIcon(image);
 

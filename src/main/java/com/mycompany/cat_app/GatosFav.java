@@ -10,10 +10,10 @@ package com.mycompany.cat_app;
  * @author Andres
  */
 public class GatosFav {
-    private String id;
-    private String url;
-    private String apikey;
-    private Imagex imagex;
+     String id;
+     String url;
+     String apikey;
+     Imagex image;
 
     public String getId() {
         return id;
@@ -39,12 +39,12 @@ public class GatosFav {
         this.apikey = apikey;
     }
 
-    public Imagex getImagex() {
-        return imagex;
+    public Imagex getImage() {
+        return image;
     }
 
-    public void setImagex(Imagex imagex) {
-        this.imagex = imagex;
+    public void setImage(Imagex image) {
+        this.image = image;
     }
     
 }

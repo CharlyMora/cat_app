@@ -10,8 +10,8 @@ package com.mycompany.cat_app;
  * @author Andres
  */
 public class Imagex {
-    private String id;
-    private String url;
+    String id;
+    String url;
 
     public String getId() {
         return id;
